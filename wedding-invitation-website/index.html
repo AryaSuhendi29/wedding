@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#FAF7F2" />
+  <title>The Wedding of XXX &amp; XXX</title>
+  <meta name="description" content="You are cordially invited to the wedding celebration of XXX &amp; XXX." />
+
+  <!-- Preconnect & Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Opening Envelope / Cover Overlay -->
+  <div id="cover-overlay" class="cover-overlay" aria-modal="true" role="dialog">
+    <div class="cover-bg"></div>
+    <div class="cover-content">
+      <p class="eyebrow">THE WEDDING CELEBRATION OF</p>
+      <h1 class="cover-names">
+        <span data-config="groom.shortName">XXX</span>
+        <span class="ampersand">&amp;</span>
+        <span data-config="bride.shortName">XXX</span>
+      </h1>
+      <p class="cover-date" data-config="displayDate">XXX</p>
+      <div id="guest-welcome-badge" class="guest-badge hidden">
+        <span>Dear,</span>
+        <strong id="invited-guest-name">Honored Guest</strong>
+      </div>
+      <button id="open-invitation-btn" class="btn-primary btn-cover" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <span>Open Invitation</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Audio Control -->
+  <button id="music-toggle" class="floating-music-btn" aria-label="Toggle Background Music" title="Toggle Music">
+    <span class="music-bars" id="music-bars">
+      <i></i><i></i><i></i><i></i>
+    </span>
+  </button>
+  <audio id="bg-music" loop preload="none"></audio>
+
+  <!-- Main Invitation Content -->
+  <main id="main-content">
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-media-wrapper">
+        <video id="hero-video" class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg"></video>
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="container hero-inner reveal">
+        <p class="eyebrow light">WE ARE GETTING MARRIED</p>
+        <h2 class="hero-title">
+          <span data-config="groom.shortName">XXX</span>
+          <span class="ampersand">&amp;</span>
+          <span data-config="bride.shortName">XXX</span>
+        </h2>
+        <p class="hero-subtitle" data-config="displayDate">XXX</p>
+        <a href="#couple" class="scroll-cue" aria-label="Scroll down">
+          <span>Scroll to Explore</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Bride & Groom Section -->
+    <section id="couple" class="section couple-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">THE HAPPY COUPLE</p>
+          <h2 class="section-title">Two Hearts, One Soul</h2>
+          <p class="section-lead">Together with our beloved families, we joyfully request the honor of your presence as we unite in marriage.</p>
+        </div>
+
+        <div class="couple-grid">
+          <!-- Groom Card -->
+          <article class="person-card reveal">
+            <div class="portrait-frame">
+              <img id="groom-photo" src="assets/images/groom.jpg" alt="The Groom" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22 viewBox=%220 0 400 500%22><rect fill=%22%23EAE3D5%22 width=%22400%22 height=%22500%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Georgia,serif%22 font-size=%2222%22 fill=%22%238A7963%22>Groom Photo</text></svg>'" />
+            </div>
+            <p class="role-label">THE GROOM</p>
+            <h3 class="person-name" data-config="groom.fullName">XXX</h3>
+            <p class="parents-text">
+              Son of<br />
+              <strong>Mr. <span data-config="groom.father">XXX</span></strong> &amp; <strong>Mrs. <span data-config="groom.mother">XXX</span></strong>
+            </p>
+          </article>
+
+          <div class="couple-divider reveal" aria-hidden="true">&amp;</div>
+
+          <!-- Bride Card -->
+          <article class="person-card reveal">
+            <div class="portrait-frame">
+              <img id="bride-photo" src="assets/images/bride.jpg" alt="The Bride" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22 viewBox=%220 0 400 500%22><rect fill=%22%23EAE3D5%22 width=%22400%22 height=%22500%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Georgia,serif%22 font-size=%2222%22 fill=%22%238A7963%22>Bride Photo</text></svg>'" />
+            </div>
+            <p class="role-label">THE BRIDE</p>
+            <h3 class="person-name" data-config="bride.fullName">XXX</h3>
+            <p class="parents-text">
+              Daughter of<br />
+              <strong>Mr. <span data-config="bride.father">XXX</span></strong> &amp; <strong>Mrs. <span data-config="bride.mother">XXX</span></strong>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Countdown Section -->
+    <section id="countdown" class="section countdown-section">
+      <div class="container reveal">
+        <p class="eyebrow">COUNTING THE MOMENTS</p>
+        <h2 class="section-title">Until We Say &ldquo;I Do&rdquo;</h2>
+
+        <div class="countdown-grid" role="timer" aria-live="polite">
+          <div class="time-box">
+            <span class="time-val" id="cd-days">00</span>
+            <span class="time-label">Days</span>
+          </div>
+          <div class="time-box">
+            <span class="time-val" id="cd-hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <div class="time-box">
+            <span class="time-val" id="cd-minutes">00</span>
+            <span class="time-label">Minutes</span>
+          </div>
+          <div class="time-box">
+            <span class="time-val" id="cd-seconds">00</span>
+            <span class="time-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Event Details & Save The Date + Venue Section -->
+    <section id="event" class="section event-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">SAVE THE DATE</p>
+          <h2 class="section-title">Wedding Ceremony &amp; Reception</h2>
+        </div>
+
+        <div class="event-card reveal">
+          <!-- Clickable Date & Time -> Google Calendar -->
+          <div class="event-detail-block">
+            <div class="icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3>Date &amp; Time</h3>
+            <a id="save-the-date-link" href="#" target="_blank" rel="noopener noreferrer" class="interactive-detail-link" title="Click to save to Google Calendar">
+              <span class="detail-primary" data-config="displayDate">XXX</span>
+              <span class="detail-secondary" data-config="displayTime">XXX</span>
+              <span class="action-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                Add to Google Calendar
+              </span>
+            </a>
+          </div>
+
+          <div class="event-divider"></div>
+
+          <!-- Clickable Venue Address -> Google Maps -->
+          <div class="event-detail-block">
+            <div class="icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>Venue Location</h3>
+            <a id="venue-map-link" href="#" target="_blank" rel="noopener noreferrer" class="interactive-detail-link" title="Click to open in Google Maps">
+              <span class="detail-primary" data-config="venue.name">XXX</span>
+              <span class="detail-secondary" data-config="venue.address">XXX</span>
+              <span class="action-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                </svg>
+                Open in Google Maps
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Embedded Google Maps Preview -->
+        <div class="map-container reveal">
+          <iframe
+            id="google-map-iframe"
+            title="Wedding Venue Map"
+            src=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pre-Wedding Gallery -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">OUR MOMENTS</p>
+          <h2 class="section-title">Captured Memories</h2>
+        </div>
+        <div id="gallery-grid" class="gallery-grid reveal"></div>
+      </div>
+    </section>
+
+    <!-- 6. RSVP Section -->
+    <section id="rsvp" class="section rsvp-section">
+      <div class="container narrow">
+        <div class="section-header reveal">
+          <p class="eyebrow">KINDLY RESPOND</p>
+          <h2 class="section-title">RSVP</h2>
+          <p class="section-lead">Please confirm your attendance and leave your warm wishes for us below.</p>
+        </div>
+
+        <form id="rsvp-form" class="rsvp-card reveal" novalidate>
+          <div class="form-group">
+            <label for="guest-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="guest-name" name="fullName" placeholder="e.g., Ade Fitriyani" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label>Will you attend? <span class="req">*</span></label>
+            <div class="radio-pill-group">
+              <label class="radio-pill">
+                <input type="radio" name="attendance" value="Attending" checked />
+                <span>Joyfully Attending</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="attendance" value="Not Attending" />
+                <span>Regretfully Decline</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="guest-count-group">
+            <label for="guest-count">Number of Guests Attending <span class="req">*</span></label>
+            <select id="guest-count" name="guestCount">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="guest-wishes">Wishes &amp; Messages <span class="req">*</span></label>
+            <textarea id="guest-wishes" name="wishes" rows="4" placeholder="Write your prayers and wishes for the bride and groom..." required></textarea>
+          </div>
+
+          <button type="submit" id="rsvp-submit-btn" class="btn-primary btn-full">
+            <span id="submit-btn-text">Send RSVP &amp; Wishes</span>
+          </button>
+
+          <p id="rsvp-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 7. Wedding Wishes Wall -->
+    <section id="wishes" class="section wishes-section">
+      <div class="container narrow">
+        <div class="section-header reveal">
+          <p class="eyebrow">BLESSINGS &amp; PRAYERS</p>
+          <h2 class="section-title">Wedding Wishes</h2>
+          <p class="section-lead"><span id="wishes-count">1</span> heartfelt message shared by our loved ones</p>
+        </div>
+
+        <div id="wishes-list" class="wishes-list reveal">
+          <!-- Wishes dynamically rendered here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Gift Section -->
+    <section id="gifts" class="section gift-section">
+      <div class="container narrow">
+        <div class="gift-card reveal">
+          <p class="eyebrow">WEDDING GIFT</p>
+          <h2 class="section-title" data-config="gifts.sectionTitle">Wanna give us some gifts?</h2>
+          <p class="section-lead" data-config="gifts.subtitle"></p>
+
+          <div class="gift-grid">
+            <!-- Bank Transfer Card -->
+            <div class="gift-box">
+              <span class="gift-box-label">Digital Envelope / Bank Transfer</span>
+              <p class="gift-bank" data-config="gifts.bankName">XXX</p>
+              <p class="gift-account" id="bank-account-number" data-config="gifts.accountNumber">XXX</p>
+              <p class="gift-holder">a.n. <span data-config="gifts.accountHolder">XXX</span></p>
+              <button type="button" class="btn-outline copy-btn" data-copy-target="bank-account-number">
+                Copy Account Number
+              </button>
+            </div>
+
+            <!-- Physical Gift Delivery Card -->
+            <div class="gift-box">
+              <span class="gift-box-label">Gift Delivery Address</span>
+              <p class="gift-recipient" data-config="gifts.deliveryRecipient">XXX</p>
+              <p class="gift-address" id="gift-delivery-address" data-config="gifts.deliveryAddress">XXX</p>
+              <button type="button" class="btn-outline copy-btn" data-copy-target="gift-delivery-address">
+                Copy Delivery Address
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Closing Section -->
+    <footer class="closing-section">
+      <div class="container reveal">
+        <p class="closing-note">
+          It would be our greatest joy to share this milestone with you. Thank you for your love, prayers, and presence.
+        </p>
+        <h2 class="closing-names">
+          <span data-config="groom.shortName">XXX</span> &amp; <span data-config="bride.shortName">XXX</span>
+        </h2>
+        <p class="closing-date" data-config="displayDate">XXX</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
